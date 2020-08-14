@@ -8,7 +8,7 @@
             "name": ".NET Core Launch (console)",
             "type": "coreclr",
             "request": "launch",
-           // "preLaunchTask": "build",
+            "preLaunchTask": "build",
             "program": "${workspaceFolder}/Program/bin/Debug/netcoreapp3.1/Program.exe",
             "args": [],
             "cwd": "${workspaceFolder}",
