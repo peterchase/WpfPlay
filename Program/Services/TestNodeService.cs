@@ -55,8 +55,8 @@ namespace FridayAfternoon.WpfPlay.Program.Services
             return Enumerable.Range(1, numberToLoad)
                 .Select(i =>
                 {
-                    var boss = i % 1000 == 0 ? 0 : random.Next(0, i);
-                    return new TestNodeDto(i, $"Person {i}", boss);
+                    var parent = i % 1000 == 0 ? 0 : random.Next(0, i);
+                    return new TestNodeDto(i, $"Test {i}", parent);
                 });
         }
     }
