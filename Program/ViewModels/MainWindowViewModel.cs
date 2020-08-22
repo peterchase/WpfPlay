@@ -6,9 +6,9 @@ namespace FridayAfternoon.WpfPlay.Program.ViewModels
     {
         public MainWindowViewModel()
         {
-            Employees = new TestNodesViewModel(TestNodeService.CreateWithRandomContent());
+            TestNodes = new TestNodesViewModel(TestNodeService.CreateWithRandomContent());
         }
 
-        public TestNodesViewModel Employees { get; }
+        public TestNodesViewModel TestNodes { get; }
     }
 }
