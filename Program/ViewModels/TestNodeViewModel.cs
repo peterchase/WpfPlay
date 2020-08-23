@@ -16,8 +16,6 @@ namespace FridayAfternoon.WpfPlay.Program.ViewModels
         private readonly IDisposable mCleanUp;
         private bool mIsExpanded;
         private bool mIsSelected;
-        private readonly Command mMoveCommand;
-        private readonly Command mRemoveCommand;
         private string mTestNodeCountText;
         private  ReadOnlyObservableCollection<TestNodeViewModel> mChildren;
 
@@ -30,8 +28,8 @@ namespace FridayAfternoon.WpfPlay.Program.ViewModels
             ParentId = node.Item.ParentId; 
             Dto = node.Item;
 
-            mMoveCommand = new Command(()=> moveAction(this), () => Parent.HasValue);
-            mRemoveCommand = new Command(() => removeAction(this));
+            MoveCommand = new Command(()=> moveAction(this), () => Parent.HasValue);
+            RemoveCommand = new Command(() => removeAction(this));
 
             //Wrap loader for the nested view model inside a lazy so we can control when it is invoked
             var childrenLoader = new Lazy<IDisposable>(() => node.Children.Connect()
@@ -90,9 +88,9 @@ namespace FridayAfternoon.WpfPlay.Program.ViewModels
 
         public ReadOnlyObservableCollection<TestNodeViewModel> Children => mChildren;
 
-        public ICommand PromoteCommand => mMoveCommand;
+        public ICommand MoveCommand { get; }
 
-        public ICommand SackCommand => mRemoveCommand;
+        public ICommand RemoveCommand { get; }
 
         public string TestNodeCountText
         {
